@@ -4,6 +4,8 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
+    # refactor with pundit, .where is activerecord
+    # policies :)
   end
 
   def show
@@ -17,11 +19,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.create(booking_params)
     @booking.user = current_user
-    @booking.studio = Studio.find(params[:studio_id])
+    @booking.studio = @studio
+      # authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      redirect_to studio_path(@studio)
+      render :new
+      # redirect_to studio_path(@studio)
     end
   end
 

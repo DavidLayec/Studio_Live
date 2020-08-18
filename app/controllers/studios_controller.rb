@@ -23,9 +23,12 @@ class StudiosController < ApplicationController
   def show
     set_studio
     # authorize @studio
-    @booking = Booking.new
-    @booking.user = current_user
-    @booking.studio = @studio
+
+    # @booking = Booking.new
+    # @booking.user = current_user
+    # @booking.studio = @studio
+    # why are the bookings here and not studios?
+
     # authorize @booking
   end
 
