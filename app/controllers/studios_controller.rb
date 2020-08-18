@@ -7,7 +7,7 @@ class StudiosController < ApplicationController
 
   def new
     @studio = Studio.new
-    authorize @studio
+    # authorize @studio
   end
 
   def create
@@ -18,15 +18,18 @@ class StudiosController < ApplicationController
     else
       render :new
     end
+  end
 
   def show
     set_studio
-    authorize @studio
+    # authorize @studio
     @booking = Booking.new
     @booking.user = current_user
     @booking.studio = @studio
-    authorize @booking
+    # authorize @booking
   end
+
+  private
 
   def studio_params
     params.require(:studio).permit(:address, :title, :price, :description, :country, :city, :zipcode, :latitude, :longitude)
