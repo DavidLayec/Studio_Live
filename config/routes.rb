@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  # resources :bookings, only: [:update, :edit, :destroy]
+  resources :bookings, only: [:index, :show, :update, :edit, :destroy]
 
   # pundit handles.. but focus on core user journey
   # resources :users do
