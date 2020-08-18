@@ -1,5 +1,5 @@
 class StudiosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new]
+  skip_before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @studios = Studio.all
@@ -7,6 +7,7 @@ class StudiosController < ApplicationController
 
   def new
     @studio = Studio.new
+    authorize @studio
   end
 
   def create
@@ -20,6 +21,11 @@ class StudiosController < ApplicationController
 
   def show
     set_studio
+    authorize @studio
+    @booking = Booking.new
+    @booking.user = current_user
+    @booking.studio = @studio
+    authorize @booking
   end
 
   def studio_params
