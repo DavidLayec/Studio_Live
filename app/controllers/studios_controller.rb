@@ -10,7 +10,7 @@ class StudiosController < ApplicationController
   end
 
   def create
-    @studio = Studio.create(bed_params)
+    @studio = Studio.create(studio_params)
     @studio.user = current_user
     if @studio.save
       redirect_to studio_path(@studio)
@@ -22,7 +22,7 @@ class StudiosController < ApplicationController
     set_studio
   end
 
-  def bed_params
+  def studio_params
     params.require(:studio).permit(:address, :title, :price, :description, :country, :city, :zipcode, :latitude, :longitude)
   end
 
