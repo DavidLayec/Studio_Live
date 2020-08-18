@@ -3,8 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_studio, only: [:new, :create]
 
   def index
-    @bookings = current_user.bookings
-    # @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   def show
