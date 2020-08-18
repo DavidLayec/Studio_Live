@@ -1,9 +1,13 @@
- <div class="card">
-  <div class="card-description">
+<h1>Find the Music Studio</strong> that matches <strong>your needs</strong>!</h1>
 
-
-    <p><%= Studio.all %></p>
-  </div>
-  <div class="card-price">
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+  <% @studios.each do |studio| %>
+    <h2><%= studio.title %></h2>
+    <p> <%= studio.description %></p>
+    <p>Only for <%= studio.price %> € per hour.</p>
+    <p>Rent by <%= studio.user.email %> in <%= studio.city %></p>
   </div>
 </div>
+<% end %>
