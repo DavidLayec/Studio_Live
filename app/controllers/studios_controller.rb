@@ -4,12 +4,15 @@ class StudiosController < ApplicationController
   def index
     @studios = Studio.geocoded.where.not(latitude: nil, longitude: nil)
     @markers = @studios.map do |studio|
-      { lat: studio.latitude, lng: studio.longitude }
-    end
+    { lat: studio.latitude,
+      lng: studio.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
+    }
   end
+end
 
-  def new
-    @studio = Studio.new
+def new
+  @studio = Studio.new
     # authorize @studio
   end
 
