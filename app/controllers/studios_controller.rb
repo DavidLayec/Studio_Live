@@ -2,7 +2,10 @@ class StudiosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @studios = Studio.all
+    @studios = Studio.where.not(latitude: nil, longitude: nil)
+    markers = @studios.map do |studio|
+      { lat: studio.latitude, lng: studio.longitude }
+    end
   end
 
   def new
