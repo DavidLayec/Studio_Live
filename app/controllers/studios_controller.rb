@@ -6,7 +6,7 @@ class StudiosController < ApplicationController
     @markers = @studios.map do |studio|
     { lat: studio.latitude,
       lng: studio.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
+      # infoWindow: render_to_string(partial: "/studios/info_window", locals: { studio: studio })
     }
   end
 end
