@@ -2,10 +2,11 @@
   <br>
   <h2><strong>Awesome! You booked your studio!</strong></h2><br>
   <h3><strong>Your studio rental...</strong></h3><br>
-
-  <strong>Start of booking: <%= @booking.time_in %></strong> | <strong>End of booking: <%= @booking.time_out %></strong>
-
   <h4><strong><%= @booking.studio.title %></strong></h4>
+
+  <strong>Start of booking: <%= @booking.time_in %></strong> | <strong>End of booking: <%= @booking.time_out %></strong><br>
+
+  <br>
   <p>Address: <%= @booking.studio.address %>, <%= @booking.studio.city %>, <%= @booking.studio.zipcode %></p>
   <p><%= @booking.studio.description %></p>
   <p>Total rental price: <%= @booking.studio.price %></p>
