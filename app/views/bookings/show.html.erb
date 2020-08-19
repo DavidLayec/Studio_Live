@@ -1,16 +1,34 @@
 <div class="container-listing">
   <br>
-  <h2><strong>Awesome! You booked your studio!</strong></h2><br>
-  <h3><strong>Your studio rental...</strong></h3><br>
-  <h4><strong><%= @booking.studio.title %></strong></h4>
+  <div class="flash flash-success alert-dismissible fade show">
+    <span><strong>  <h2><strong>Awesome! You booked your studio! </strong></h2></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
 
-  <strong>Start of booking: <%= @booking.time_in %></strong> | <strong>End of booking: <%= @booking.time_out %></strong><br>
+  <div class="card-trip">
+    <img src="https://cantusstudio.com/wp-content/uploads/studio2.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h4><strong>Your studio rental...</strong></h4>
+        <p><strong>Arrive at: <%= @booking.time_in %></strong> | <strong>until: <%= @booking.time_out %></strong></p>
+        <p>Address: <%= @booking.studio.address %> <%= @booking.studio.city %>, <%= @booking.studio.zipcode %>, <%= @booking.studio.country %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= @booking.studio.price %>€</h2>
+      <img src="" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
 
-  <br>
-  <p>Address: <%= @booking.studio.address %>, <%= @booking.studio.city %>, <%= @booking.studio.zipcode %></p>
-  <p><%= @booking.studio.description %></p>
-  <p>Total rental price: <%= @booking.studio.price %></p>
 
-<!-- something for pics
- -->
-</div>
+  <!--   <h2><strong>Awesome! You booked your studio!</strong></h2><br> -->
+
+<!-- <h3><strong>Your studio rental...</strong></h3><br>
+<h4><strong><%= @booking.studio.title %></strong></h4>
+
+<strong>Start of booking: <%= @booking.time_in %></strong> | <strong>End of booking: <%= @booking.time_out %></strong><br>
+
+<br>
+<p>Address: <%= @booking.studio.address %>, <%= @booking.studio.city %>, <%= @booking.studio.zipcode %></p>
+<p><%= @booking.studio.description %></p>
+<p>Total rental price: <%= @booking.studio.price %></p> -->
