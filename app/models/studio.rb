@@ -1,7 +1,6 @@
 class Studio < ApplicationRecord
   belongs_to :user
   validates :price, presence: true
-  validates :country, presence: true
   validates :zipcode, presence: true
   validates :address, presence: true
   validates :title, presence: true

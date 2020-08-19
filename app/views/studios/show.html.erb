@@ -1,35 +1,26 @@
-<div class=content style="display: flex; flex-direction: row; flex-wrap: wrap;">
+<main class="studio-container">
 
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= @studio.title %></h2>
-    <p> <%= @studio.description %></p>
-    <p>Only for <%= @studio.price %> € per hour.</p>
-    <p>Rent by <%= @studio.user.email %> in <%= @studio.city %></p>
+  <!-- Left Column / Headphones Image -->
+  <div class="studio-left-column">
+    <img src="https://source.unsplash.com/WK279Gj2G1c" />
   </div>
-</div>
 
+  <!-- Right Column -->
+  <div class="studio-right-column">
 
-<div class="col-xs-12 col-sm-6">
-      <div class="text-center">
-        <%= simple_form_for [@studio, @booking] do |f| %>
-
-          <div class="booking-card">
-            <div >
-            <p>From </p>
-            <%= f.text_field :time_in, placeholder: "dd/mm/yyyy/hh" %>
-            </div>
-            <div>
-            <p> To </p>
-            <%= f.text_field :time_out, placeholder: "dd/mm/yyyy/hh" %>
-            </div>
-            <p> <strong>Total price: <span id="total_price"><%= @studio_price %> €</span></strong></p>
-            <%= f.submit "Book", class: "btn btn-danger"%>
-          </div>
-
-        <% end%>
-
-      </div>
+    <!-- Product Description -->
+    <div class="studio-description">
+      <h1><%= @studio.title %></h1>
+      <p><%= @studio.description %></p>
     </div>
-</div>
+
+    <!-- Product Pricing -->
+    <div class="studio-price">
+      <span>Only <%= @studio.price %> $</span>
+      <p>The studio is located  <%= @studio.address %>  <%= @studio.zipcode %> in <%= @studio.city %> </p>
+      <%= link_to new_studio_booking_path(@studio, @booking) do %>
+      <button class="cart-btn">Book</button>
+      <% end %>
+    </div>
+  </div>
+</main>
