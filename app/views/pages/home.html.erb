@@ -20,7 +20,7 @@
 
       <div class="card-deck">
         <div class="card">
-          <%= image_tag "logo.png", class:'logo-image' %>
+          <img src="https://source.unsplash.com/FJYpEIcoWBk" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Login</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -28,7 +28,7 @@
 
         </div>
         <div class="card">
-          <%= image_tag "logo.png", class:'logo-image'%>
+          <img src="https://source.unsplash.com/WK279Gj2G1c" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Choose a Studio</h5>
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -36,7 +36,7 @@
 
         </div>
         <div class="card">
-          <%= image_tag "logo.png", class:'logo-image' %>
+          <img src="https://source.unsplash.com/fVIpbUFPggo" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Play Music</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -57,13 +57,13 @@
 
       <% @studios.each do |studio| %>
         <div class="card">
-          <%= image_tag "logo.png", class:'logo-image' %>
+          <img src="https://source.unsplash.com/FGvvFv_7Epk" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title"><%= studio.title %></h5>
+            <p class="card-text"><%= studio.description %></p>
           </div>
           <div class="card-footer">
-            <small class="card-trip-pricing">£99.99</small>
+            <small class="card-trip-pricing"><%= studio.price %> $ per hour</small>
           </div>
         </div>
         <% end %>
