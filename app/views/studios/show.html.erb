@@ -18,7 +18,7 @@
     <div class="studio-price">
       <span>Only <%= @studio.price %> $</span>
       <p>The studio is located  <%= @studio.address %>  <%= @studio.zipcode %> in <%= @studio.city %> </p>
-      <%= link_to new_booking_path(studio) do %>
+      <%= link_to new_studio_booking_path(@studio, @booking) do %>
       <button class="cart-btn">Book</button>
       <% end %>
     </div>
