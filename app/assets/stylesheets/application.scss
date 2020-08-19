@@ -17,4 +17,5 @@
 @import "components/banner";
 @import "components/text";
 @import "components/card-index";
-@import 'mapbox-gl/dist/mapbox-gl';
+@import "mapbox-gl/dist/mapbox-gl";
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
