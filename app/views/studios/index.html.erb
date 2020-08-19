@@ -13,3 +13,11 @@
       <p>Rent by <%= studio.user.email %> in <%= studio.city %></p>
     </div>
   </div>
+<% end %>
+
+<div id='map'
+style="height: 600px; width: 100%;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+map
+</div>
