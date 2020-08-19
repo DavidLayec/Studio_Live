@@ -7,15 +7,23 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <nav class="navbar navbar-light bg-white">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter a city" aria-label="Search">
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+ <button class="btn btn-sm btn-outline-secondary" type="button">Add your Studio!</button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Add my studio", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "Be antivax", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
