@@ -2,16 +2,25 @@ class StudiosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @studios = Studio.geocoded.where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      # sql_query = "title ILIKE :query \
+      # OR description ILIKE :query \
+      # OR address ILIKE :query \
+      # "
+      @studios = Studio.search_by_title_description_and_address(params[:query])
+    else
+      @studios = Studio.all
+    end
+
     @markers = @studios.map do |studio|
     { lat: studio.latitude,
-      lng: studio.longitude,
-      # infoWindow: render_to_string(partial: "/studios/info_window", locals: { studio: studio })
+      lng: studio.longitude
+      # infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
     }
+    end
   end
-end
 
-def new
+  def new
   @studio = Studio.new
     # authorize @studio
   end
