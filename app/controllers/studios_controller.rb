@@ -2,10 +2,16 @@ class StudiosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @studios = policy_scope(Studio).geocoded.where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      @studios = policy_scope(Studio).geocoded.search_by_title_description_and_address(params[:query])
+    else
+      @studios = Studio.all
+    end
+
     @markers = @studios.map do |studio|
-      { lat: studio.latitude,
-        lng: studio.longitude }
+    { lat: studio.latitude,
+      lng: studio.longitude
+    }
     end
   end
 
@@ -41,7 +47,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:address, :title, :price, :description, :country, :city, :zipcode, :latitude, :longitude)
+    params.require(:studio).permit(:address, :title, :price, :description, :country, :city, :zipcode, :latitude, :longitude, :photo)
   end
 
   def set_studio

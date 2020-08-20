@@ -2,7 +2,11 @@
 
   <!-- Left Column / Headphones Image -->
   <div class="studio-left-column">
-    <img src="https://source.unsplash.com/WK279Gj2G1c" />
+    <div class="container">
+       <% if @studio.photo.attached? %>
+          <div><%= cl_image_tag @studio.photo.key, height: 300, width: 400, crop: :fit %></div>
+        <% end %>
+    </div>
   </div>
 
   <!-- Right Column -->
@@ -27,3 +31,4 @@
     </div>
   </div>
 </main>
+

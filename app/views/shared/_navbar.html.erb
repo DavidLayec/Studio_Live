@@ -8,10 +8,15 @@
   </button>
 
   <nav class="navbar navbar-light bg-white">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Enter a city" aria-label="Search" id="studio_address">
-    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-  </form>
+    <%= form_tag studios_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        id: "studio_address",
+        placeholder: "Find a studio"
+      %>
+      <%= submit_tag "Search", class: "btn btn-sm btn-outline-secondary" %>
+    <% end %>
 </nav>
 
   <%= link_to new_studio_path do %>
