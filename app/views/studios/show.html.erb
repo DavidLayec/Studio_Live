@@ -17,7 +17,7 @@
       <h1><%= @studio.title %></h1>
       <p><%= @studio.description %></p>
        <% if policy(@studio).destroy? %>
-        <p><%= link_to "Delete my studio", studio_path(@studio), method: :delete, data: { confirm: "Are you sure?"}%></p>
+        <p><%= link_to "Delete my studio", studio_path(@studio), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger'%></p>
       <% end %>
     </div>
 
