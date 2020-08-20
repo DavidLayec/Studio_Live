@@ -12,6 +12,9 @@
     <div class="studio-description">
       <h1><%= @studio.title %></h1>
       <p><%= @studio.description %></p>
+       <% if policy(@studio).destroy? %>
+        <p><%= link_to "Delete my studio", studio_path(@studio), method: :delete, data: { confirm: "Are you sure?"}%></p>
+      <% end %>
     </div>
 
     <!-- Product Pricing -->
@@ -19,7 +22,7 @@
       <span>Only <%= @studio.price %> $</span>
       <p>The studio is located  <%= @studio.address %>  <%= @studio.zipcode %> in <%= @studio.city %> </p>
       <%= link_to new_studio_booking_path(@studio, @booking) do %>
-      <button class="cart-btn">Book</button>
+      <button class="btn-flat">Book</button>
       <% end %>
     </div>
   </div>
