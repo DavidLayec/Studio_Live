@@ -5,7 +5,7 @@ class StudiosController < ApplicationController
     if params[:query].present?
       @studios = policy_scope(Studio).geocoded.search_by_title_description_and_address(params[:query])
     else
-      @studios = Studio.all
+      @studios = policy_scope(Studio).all
     end
 
     @markers = @studios.map do |studio|
@@ -47,7 +47,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:address, :title, :price, :description, :country, :city, :zipcode, :latitude, :longitude, :photo)
+    params.require(:studio).permit(:address, :title, :price, :description, :latitude, :longitude, :photo)
   end
 
   def set_studio
