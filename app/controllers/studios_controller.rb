@@ -7,7 +7,7 @@ class StudiosController < ApplicationController
       # OR description ILIKE :query \
       # OR address ILIKE :query \
       # "
-      @studios = Studio.search_by_title_description_and_address(params[:query])
+      @studios = Studio.geocoded.search_by_title_description_and_address(params[:query])
     else
       @studios = Studio.all
     end
