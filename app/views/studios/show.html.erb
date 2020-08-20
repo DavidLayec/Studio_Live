@@ -2,11 +2,9 @@
 
   <!-- Left Column / Headphones Image -->
   <div class="studio-left-column">
-    <div class="container">
        <% if @studio.photo.attached? %>
-          <div><%= cl_image_tag @studio.photo.key, height: 300, width: 400, crop: :fit %></div>
+          <div class="studio-left-image"><%= cl_image_tag @studio.photo.key, height: 300, width: 400, crop: :fit %></div>
         <% end %>
-    </div>
   </div>
 
   <!-- Right Column -->
