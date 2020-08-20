@@ -3,11 +3,7 @@ class StudiosController < ApplicationController
 
   def index
     if params[:query].present?
-      # sql_query = "title ILIKE :query \
-      # OR description ILIKE :query \
-      # OR address ILIKE :query \
-      # "
-      @studios = Studio.geocoded.search_by_title_description_and_address(params[:query])
+      @studios = policy_scope(Studio).geocoded.search_by_title_description_and_address(params[:query])
     else
       @studios = Studio.all
     end
@@ -15,19 +11,19 @@ class StudiosController < ApplicationController
     @markers = @studios.map do |studio|
     { lat: studio.latitude,
       lng: studio.longitude
-      # infoWindow: render_to_string(partial: "info_window", locals: { studio: studio })
     }
     end
   end
 
   def new
-  @studio = Studio.new
-    # authorize @studio
+    @studio = Studio.new
+    authorize @studio
   end
 
   def create
     @studio = Studio.create(studio_params)
     @studio.user = current_user
+    authorize @studio
     if @studio.save
       redirect_to studio_path(@studio)
     else
@@ -37,14 +33,15 @@ class StudiosController < ApplicationController
 
   def show
     set_studio
-    # authorize @studio
+    @studio.user = current_user
+    authorize @studio
+  end
 
-    # @booking = Booking.new
-    # @booking.user = current_user
-    # @booking.studio = @studio
-    # why are the bookings here and not studios?
-
-    # authorize @booking
+  def destroy
+    set_studio
+    @studio.destroy
+    redirect_to root_path
+    authorize @studio
   end
 
   private

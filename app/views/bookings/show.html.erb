@@ -20,6 +20,10 @@
     </div>
   </div>
 
+  <%# if policy(Booking).destroy? %>
+    <p><%#= link_to "Delete my booking", booking, method: delete, data: { confirm: "Are you sure?"}%></p>
+  <%# end %>
+
 
   <!--   <h2><strong>Awesome! You booked your studio!</strong></h2><br> -->
 
