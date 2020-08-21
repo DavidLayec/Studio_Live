@@ -21,7 +21,7 @@
 
     <!-- Product Pricing -->
     <div class=product-page-container>
-      <p>The studio is located  <%= @studio.address %>.</p>
+      <p>The studio is located at <%= @studio.address %>.</p>
       <hr>
 
     <div class="studio-price">
@@ -88,6 +88,12 @@
       </div>
     </div>
   </section>
+
+  <div class="back-studios">
+   <%= link_to studios_path do %>
+      <button class="back-btn btn btn-flat"> < List of studios</button>
+    <% end %>
+  </div>
   <!-- end features Area -->
   <div class="footer">
       <div class="footer-links">
