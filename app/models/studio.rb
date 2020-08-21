@@ -1,5 +1,6 @@
 class Studio < ApplicationRecord
   belongs_to :user
+  has_many :booking, dependent: :destroy
   validates :price, presence: true
   validates :address, presence: true
   validates :title, presence: true

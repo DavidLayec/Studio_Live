@@ -2,10 +2,10 @@
 
   <!-- Left Column / Headphones Image -->
   <div class="studio-left-column">
-       <% if @studio.photo.attached? %>
-          <div class="studio-left-image"><%= cl_image_tag @studio.photo.key, height: 300, width: 400, crop: :fit %></div>
-        <% end %>
-  </div>
+    <% if @studio.photo.attached? %>
+      <div class="studio-left-image"><%= cl_image_tag @studio.photo.key, height: 300, width: 400, crop: :fit %></div>
+    <% end %>
+ </div>
 
   <!-- Right Column -->
   <div class="studio-right-column">
@@ -13,20 +13,92 @@
     <!-- Product Description -->
     <div class="studio-description">
       <h1><%= @studio.title %></h1>
+      <hr>
       <p><%= @studio.description %></p>
-       <% if policy(@studio).destroy? %>
-        <p><%= link_to "Delete my studio", studio_path(@studio), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger'%></p>
-      <% end %>
+
+      <hr>
     </div>
 
     <!-- Product Pricing -->
+    <div class=product-page-container>
+      <p>The studio is located  <%= @studio.address %>.</p>
+      <hr>
+
     <div class="studio-price">
-      <span>Only <%= @studio.price %> $</span>
-      <p>The studio is located  <%= @studio.address %> </p>
-      <%= link_to new_studio_booking_path(@studio, @booking) do %>
-      <button class="btn-flat">Book</button>
+      <hr>
+      <span><%= @studio.price %> $ per hour</span>
+       <%= link_to new_studio_booking_path(@studio, @booking) do %>
+      <button class="book-btn btn btn-flat">Book this studio</button>
       <% end %>
+    </div>
+
+    <!-- <div class=delete-btn-container>
+      <#% if policy(@studio).destroy? %>
+        <p><%#= link_to "Delete my studio", studio_path(@studio), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger'%></p>
+      <#% end %>
+    </div> -->
     </div>
   </div>
 </main>
+
+<!-- start features Area -->
+  <section class="features-area section_gap">
+    <div class="container">
+      <div class="row features-inner">
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="f-icon">
+              <img src="img/features/f-icon1.png" alt="">
+            </div>
+            <h6>Premium studio</h6>
+            <p>Validated by our community</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="f-icon">
+              <img src="img/features/f-icon2.png" alt="">
+            </div>
+            <h6>No Fees</h6>
+            <p>Pay the right price</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="f-icon">
+              <img src="img/features/f-icon3.png" alt="">
+            </div>
+            <h6>24/7 Support</h6>
+            <p>Call us whenever you need</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="f-icon">
+              <img src="img/features/f-icon4.png" alt="">
+            </div>
+            <h6>Secure Payment</h6>
+            <p>Use Paypal or a credit card</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end features Area -->
+  <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        <a href="">About us</a>
+      </div>
+    </div>
 

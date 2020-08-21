@@ -1,0 +1,86 @@
+.studio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+}
+
+.studio-left-column {
+  width: 65%;
+  position: relative;
+  img {
+  display: table;
+  padding: 0px 30px 0px 0px;
+  }
+}
+
+.studio-description h1:hover {
+  font-weight: bolder;
+}
+
+.studio-right-column {
+  width: 35%;
+  margin-top: 15px;
+}
+
+.studio-price {
+  display: flex;
+  align-items: center;
+}
+
+.studio-price span {
+  font-size: 26px;
+  font-weight: 300;
+  color: #43474D;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.studio-price span:hover {
+  transform: scale(1.1);
+  color: red;
+  font-weight: bold;
+}
+
+
+.studio-left-column {
+ img {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  border-radius: 4px;
+ }
+}
+
+.studio-left-column
+ img:hover {
+  transform: scale(1.03);
+ }
+
+
+.delete-btn-container {
+  padding: 20px 0px 20px 0px;
+}
+
+  .features-area {
+    padding: 0px 0px 30px 60px;
+    background-color: #F4F4F4; }
+
+.features-area h6 {
+  font-weight: bold;
+ }
+
+.features-inner {
+  padding: 40px 0; }
+
+.single-features {
+  text-align: center;
+}
+.single-features:hover {
+  border: 1px solid #21DD88; }
+
+.single-features h6:hover {
+  transform: scale(1.3);
+  color: #21DD88;
+}
