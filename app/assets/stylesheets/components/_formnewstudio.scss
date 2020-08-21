@@ -23,7 +23,7 @@ html {
 }
 
 .login-box h2 {
-  margin: 0 0 30px;
+  margin: 0 0 2px;
   padding: 0;
   color: black;
   text-align: center;
@@ -38,14 +38,13 @@ html {
   padding: 10px 0;
   font-size: 16px;
   color: black;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;
   background: transparent;
 }
 .login-box .user-box label {
-  position: absolute;
   top:0;
   left: 0;
   padding: 10px 0;
@@ -73,7 +72,7 @@ html {
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 40px;
+  margin-top: 70px;
   letter-spacing: 4px
 }
 
@@ -165,4 +164,12 @@ html {
   50%,100% {
     bottom: 100%;
   }
+}
+
+.form-group {
+    margin-bottom: 0px !important;
+}
+
+.form-actions {
+  margin-top: 8px !important
 }
