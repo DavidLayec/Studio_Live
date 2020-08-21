@@ -1,10 +1,18 @@
 <%= simple_form_for([@studio, @booking]) do |f| %>
 <%= f.error_notification %>
-  <div class="form-inputs">
+  <body class="splash">
+      <div class="login-box-booking">
+        <h2>Book a studio</h2>
+          <form>
+  <div class="user-box">
   <%= f.input :time_in %>
+  </div>
+  <div class="user-box">
   <%= f.input :time_out %>
   </div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+</form>
+</body>
 <% end %>
