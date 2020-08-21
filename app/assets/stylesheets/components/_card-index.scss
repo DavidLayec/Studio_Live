@@ -1,15 +1,15 @@
 .card-product {
+  display: flex;
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
+  margin-top: 8px;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
   object-fit: cover;
 }
 
@@ -29,67 +29,9 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  text-align: left;
 }
 
-.index-container {
-  display: flex;
-  flex-direction: column;
+.text-center {
+  text-align: center;
 }
-
-.test img {
-  width: 900px;
-}
-
-.studio-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px;
-  display: flex;
-}
-
-.studio-left-column {
-  width: 65%;
-  position: relative;
-  img {
-  display: table;
-  padding: 0px 30px 0px 0px;
-  }
-}
-
-.studio-right-column {
-  width: 35%;
-  margin-top: 60px;
-}
-
-.studio-price {
-  display: flex;
-  align-items: center;
-}
-
-.studio-price span {
-  font-size: 26px;
-  font-weight: 300;
-  color: #43474D;
-  margin-right: 20px;
-}
-
-
-.studio-left-image {
- img {
-  display: block;
-  margin: 0 auto;
- }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
