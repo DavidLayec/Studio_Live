@@ -1,23 +1,28 @@
 <h1>Find the Music Studio</strong> that matches <strong>your needs</strong>!</h1>
 
 <div class=index-container>
-<% @studios.each do |studio| %>
-  <div class="card-product card-index grid-item">
-  <img src="https://source.unsplash.com/0cbLoqUyz28" />
-      <div class="card-product-infos">
-       <%= link_to studio_path(studio) do %>
-      <h2><%=studio.title %></h2>
-      <% end %>
-      <p> <%= studio.description %></p>
-      <p>Only for <%= studio.price %> € per hour.</p>
-      <p>Rent by <%= studio.user.email %> at <%= studio.address %></p>
+  <% @studios.each do |studio| %>
+    <div class="card-product card-index grid-item">
+     <div class="studio-left-column">
+        <% if studio.photo.attached? %>
+          <div class="studio-left-image"><%= cl_image_tag studio.photo.key, height: 300, width: 400, crop: :fit %></div>
+        <% end %>
+        <div class="card-product-infos">
+          <%= link_to studio_path(studio) do %>
+            <h2><%=studio.title %></h2>
+          <% end %>
+          <p> <%= studio.description %></p>
+          <p>Only for <%= studio.price %> € per hour.</p>
+          <p>Rent by <%= studio.user.email %> at <%= studio.address %></p>
+       </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<div id='map'
-style="height: 600px; width: 100%;"
-data-markers="<%= @markers.to_json %>"
-data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-map
+  <div id='map'
+  style="height: 600px; width: 100%;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  map
+  </div>
 </div>
