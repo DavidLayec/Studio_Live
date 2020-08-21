@@ -39,9 +39,14 @@ class StudiosController < ApplicationController
 
   def destroy
     set_studio
-    @studio.destroy
-    redirect_to root_path
     authorize @studio
+      if @studio.destroy
+        flash[:notice] = "\"#{@studio.title}\" was successfully deleted."
+        redirect_to studios_path
+      else
+        flash.now[:alert] = "There was an error deleting the studio."
+        render :show
+      end
   end
 
   private
