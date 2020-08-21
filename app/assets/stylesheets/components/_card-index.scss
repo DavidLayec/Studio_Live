@@ -1,15 +1,15 @@
 .card-product {
+  display: flex;
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
+  margin-top: 8px;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
   object-fit: cover;
 }
 
@@ -29,8 +29,14 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  text-align: left;
 }
 
+<<<<<<< HEAD
+.text-center {
+  text-align: center;
+}
+=======
 .index-container {
   display: flex;
   flex-direction: column;
@@ -52,3 +58,4 @@
 
 
 
+>>>>>>> 4c58156031275edffdaa007b09d078e2074d9ded
